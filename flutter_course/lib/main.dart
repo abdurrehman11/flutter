@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import './product_manager.dart';
+import './pages/home.dart';
 
 // flutter app will first the main() and will call it automatically
 void main() {
-  // these options are for debugging of UI Layout
+  // these options are for debugging of UI Layout (flutter/rendering.dart is required for this)
 
   // debugPaintSizeEnabled = true;
   // debugPaintBaselinesEnabled = true;
@@ -25,12 +25,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
           accentColor: Colors.deepPurple),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('EasyList'),
-          ),
-          body: ProductManager()),
-          // body: ProductManager(startingProduct: 'Food Tester')),
+      home: HomePage(),
     );
   }
 }
