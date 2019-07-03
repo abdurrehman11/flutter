@@ -6,6 +6,7 @@ import './product_manager.dart';
 // flutter app will first the main() and will call it automatically
 void main() {
   // these options are for debugging of UI Layout
+
   // debugPaintSizeEnabled = true;
   // debugPaintBaselinesEnabled = true;
   // debugPaintPointersEnabled = true;
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // this is also for debugging of UI (placement of widgets)
-      debugShowMaterialGrid: true,
+      // debugShowMaterialGrid: true,
       theme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
@@ -28,7 +29,9 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text('EasyList'),
           ),
-          body: ProductManager(startingProduct: 'Food Tester')),
+          body: ProductManager()),
+          // body: ProductManager(startingProduct: 'Food Tester')),
     );
   }
 }
+
