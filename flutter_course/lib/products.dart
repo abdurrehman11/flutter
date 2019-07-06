@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Products extends StatelessWidget {
-  final List<String> products;
+  final List<Map> products;
+  final Function deleteProduct;
 
   // Named arguments are wrapped in {} braces
   // Positional arguments are wrapped in [] braces
-  Products([this.products = const []]) {
+  Products(this.products, {this.deleteProduct}) {
     print('[Products Widget] Constructor');
   }
 
@@ -13,14 +14,20 @@ class Products extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset('assets/food.jpg'),
-          Text(products[index]),
+          Image.asset(products[index]['imageUrl']),
+          Text(products[index]['title']),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
                 child: Text('Details'),
-                onPressed: () => {},
+                onPressed: () => Navigator.pushNamed<bool>(
+                            context, '/product/' + index.toString())
+                        .then((bool value) {
+                      if (value) {
+                        deleteProduct(index);
+                      }
+                    }),
               )
             ],
           )
